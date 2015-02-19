@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7515.2" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7512"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="paperGlue" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,8 +15,54 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uve-2K-IsO">
+                                <rect key="frame" x="211" y="58" width="178" height="202"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="178" id="adb-Lf-3cD"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zad-TZ-Z3H">
+                                <rect key="frame" x="249" y="21" width="102" height="30"/>
+                                <state key="normal" title="Select image 1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0LC-ag-bWR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9a-0s-fbl">
+                                <rect key="frame" x="249" y="285" width="103" height="30"/>
+                                <state key="normal" title="Select Image 2">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v07-9r-vsD"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fMB-kE-XEh">
+                                <rect key="frame" x="211" y="317" width="178" height="196"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="d9a-0s-fbl" firstAttribute="top" secondItem="uve-2K-IsO" secondAttribute="bottom" constant="25" id="52b-jG-eCL"/>
+                            <constraint firstItem="zad-TZ-Z3H" firstAttribute="leading" secondItem="d9a-0s-fbl" secondAttribute="leading" id="GeY-Xd-uRf"/>
+                            <constraint firstItem="uve-2K-IsO" firstAttribute="trailing" secondItem="fMB-kE-XEh" secondAttribute="trailing" id="N72-bF-74T"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fMB-kE-XEh" secondAttribute="bottom" constant="87" id="PU0-jG-5pM"/>
+                            <constraint firstItem="fMB-kE-XEh" firstAttribute="top" secondItem="d9a-0s-fbl" secondAttribute="bottom" constant="2" id="Pyc-pr-yCX"/>
+                            <constraint firstItem="uve-2K-IsO" firstAttribute="top" secondItem="zad-TZ-Z3H" secondAttribute="bottom" constant="8" symbolic="YES" id="Sri-Vf-rhG"/>
+                            <constraint firstItem="uve-2K-IsO" firstAttribute="leading" secondItem="fMB-kE-XEh" secondAttribute="leading" id="Vx9-Nw-flW"/>
+                            <constraint firstItem="zad-TZ-Z3H" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gMQ-ur-S0w"/>
+                            <constraint firstItem="fMB-kE-XEh" firstAttribute="centerX" secondItem="d9a-0s-fbl" secondAttribute="centerX" id="ipC-42-QbH"/>
+                            <constraint firstItem="d9a-0s-fbl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kfx-3c-4cn"/>
+                            <constraint firstItem="uve-2K-IsO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s2C-wP-wDS"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imgOne" destination="uve-2K-IsO" id="Dxg-ph-o9V"/>
+                        <outlet property="imgTwo" destination="fMB-kE-XEh" id="B1z-ix-DdI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

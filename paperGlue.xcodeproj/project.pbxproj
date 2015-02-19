@@ -11,7 +11,6 @@
 		9D99ECC71A95E40500EED007 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D99ECC61A95E40500EED007 /* ViewController.swift */; };
 		9D99ECCA1A95E40500EED007 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D99ECC81A95E40500EED007 /* Main.storyboard */; };
 		9D99ECCC1A95E40500EED007 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D99ECCB1A95E40500EED007 /* Images.xcassets */; };
-		9D99ECCF1A95E40500EED007 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D99ECCD1A95E40500EED007 /* LaunchScreen.xib */; };
 		9D99ECDB1A95E40500EED007 /* paperGlueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D99ECDA1A95E40500EED007 /* paperGlueTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 		9D99ECC61A95E40500EED007 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9D99ECC91A95E40500EED007 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D99ECCB1A95E40500EED007 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		9D99ECCE1A95E40500EED007 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9D99ECD41A95E40500EED007 /* paperGlueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = paperGlueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D99ECD91A95E40500EED007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D99ECDA1A95E40500EED007 /* paperGlueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paperGlueTests.swift; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 				9D99ECC61A95E40500EED007 /* ViewController.swift */,
 				9D99ECC81A95E40500EED007 /* Main.storyboard */,
 				9D99ECCB1A95E40500EED007 /* Images.xcassets */,
-				9D99ECCD1A95E40500EED007 /* LaunchScreen.xib */,
 				9D99ECC21A95E40500EED007 /* Supporting Files */,
 			);
 			path = paperGlue;
@@ -193,7 +190,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D99ECCA1A95E40500EED007 /* Main.storyboard in Resources */,
-				9D99ECCF1A95E40500EED007 /* LaunchScreen.xib in Resources */,
 				9D99ECCC1A95E40500EED007 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,14 +238,6 @@
 				9D99ECC91A95E40500EED007 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		9D99ECCD1A95E40500EED007 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9D99ECCE1A95E40500EED007 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -409,6 +397,7 @@
 				9D99ECE01A95E40500EED007 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9D99ECE11A95E40500EED007 /* Build configuration list for PBXNativeTarget "paperGlueTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +406,7 @@
 				9D99ECE31A95E40500EED007 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
