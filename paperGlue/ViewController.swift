@@ -30,26 +30,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func mergeImages(sender: UIButton) {
-        /* TODO
-        *   - Get size of image 1 and image 2
-        *   - Create empty image of:
-        *       -width = max(image 1 width, image 2 width)
-        *       - height = image 1 height + image 2 height
-        *   - position image 1 top left
-        *   - position image 2 bottom left
-        *   - PROFIT!!
-        */
-        
         var imgOneSize: CGSize! = imgOne?.image?.size
         var imgTwoSize: CGSize! = imgTwo?.image?.size
-        
         var mergedImgHeight = imgOneSize.height + imgTwoSize.height
-        
         var mergedImgSize: CGSize = CGSizeMake(mergedImgWidth(), mergedImgHeight)
-        
         var rectangle = CGRectMake(0.0, 0.0, mergedImgWidth(), mergedImgHeight)
-        var imageRef = CGImageCreateWithImageInRect(imgOne.image?.CGImage, rectangle)
-        var mergedImg = UIImage(CGImage: imageRef)
+
+        
+        
+        UIGraphicsBeginImageContext(mergedImgSize)
+            imgOne?.image?.drawInRect(CGRectMake(0.0, 0.0, imgOneSize.width, imgOneSize.height))
+            imgTwo?.image?.drawInRect(CGRectMake(0.0, imgOneSize.height, imgTwoSize.width, imgTwoSize.height))
+            var mergedImg: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
         resultImg.image = mergedImg
     }
     
