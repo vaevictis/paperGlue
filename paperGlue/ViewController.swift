@@ -47,6 +47,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         resultImg.image = mergedImg
     }
     
+    @IBAction func saveToLibrary(sender: UIButton) {
+        let alertController = UIAlertController(title: "paperGlue", message: "Do you want to save merged image to photo library?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let saveAction = UIAlertAction(title: "Save", style: .Default) { (action) in
+            self.writeImgToLibrary()
+        }
+        alertController.addAction(saveAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func writeImgToLibrary() {
+        UIImageWriteToSavedPhotosAlbum(resultImg.image, self, "image:didFinishSavingWithError:contextInfo:", nil)
+    }
+    
     func mergedImgWidth() -> CGFloat {
         var imgOneSize: CGSize! = imgOne?.image?.size
         var imgTwoSize: CGSize! = imgTwo?.image?.size
@@ -61,6 +79,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return CGFloat(max(imgOneWidth!,imgTwoWidth!))
     }
     
+    
+    func image(image: UIImage, didFinishSavingWithError
+        error: NSErrorPointer, contextInfo:UnsafePointer<Void>) {
+            if error != nil {
+                println("error: \(error)")
+            }
+    }
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject: AnyObject]) {
