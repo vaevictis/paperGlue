@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7515.2" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7512"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,51 +18,72 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uve-2K-IsO">
-                                <rect key="frame" x="211" y="58" width="178" height="202"/>
+                                <rect key="frame" x="211" y="58" width="178" height="121"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="178" id="adb-Lf-3cD"/>
+                                    <constraint firstAttribute="height" constant="121" id="HiS-z7-QDV"/>
+                                    <constraint firstAttribute="width" constant="178" id="Ycb-Pi-JbB"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zad-TZ-Z3H">
-                                <rect key="frame" x="249" y="21" width="102" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zad-TZ-Z3H">
+                                <rect key="frame" x="16" y="20" width="102" height="30"/>
                                 <state key="normal" title="Select image 1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0LC-ag-bWR"/>
+                                    <action selector="selectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mwu-nk-Ivg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9a-0s-fbl">
-                                <rect key="frame" x="249" y="285" width="103" height="30"/>
+                                <rect key="frame" x="126" y="20" width="103" height="30"/>
                                 <state key="normal" title="Select Image 2">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v07-9r-vsD"/>
+                                    <action selector="selectImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mNI-yP-Ur4"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fMB-kE-XEh">
-                                <rect key="frame" x="211" y="317" width="178" height="196"/>
+                                <rect key="frame" x="211" y="225" width="178" height="121"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="121" id="D3C-Cl-TS0"/>
+                                </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Udw-fv-y6d">
+                                <rect key="frame" x="16" y="354" width="568" height="226"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLW-wB-QMd">
+                                <rect key="frame" x="487" y="20" width="97" height="30"/>
+                                <state key="normal" title="Merge images">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="mergeImages:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hWd-CH-rmg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="d9a-0s-fbl" firstAttribute="top" secondItem="uve-2K-IsO" secondAttribute="bottom" constant="25" id="52b-jG-eCL"/>
-                            <constraint firstItem="zad-TZ-Z3H" firstAttribute="leading" secondItem="d9a-0s-fbl" secondAttribute="leading" id="GeY-Xd-uRf"/>
-                            <constraint firstItem="uve-2K-IsO" firstAttribute="trailing" secondItem="fMB-kE-XEh" secondAttribute="trailing" id="N72-bF-74T"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fMB-kE-XEh" secondAttribute="bottom" constant="87" id="PU0-jG-5pM"/>
-                            <constraint firstItem="fMB-kE-XEh" firstAttribute="top" secondItem="d9a-0s-fbl" secondAttribute="bottom" constant="2" id="Pyc-pr-yCX"/>
-                            <constraint firstItem="uve-2K-IsO" firstAttribute="top" secondItem="zad-TZ-Z3H" secondAttribute="bottom" constant="8" symbolic="YES" id="Sri-Vf-rhG"/>
-                            <constraint firstItem="uve-2K-IsO" firstAttribute="leading" secondItem="fMB-kE-XEh" secondAttribute="leading" id="Vx9-Nw-flW"/>
-                            <constraint firstItem="zad-TZ-Z3H" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gMQ-ur-S0w"/>
-                            <constraint firstItem="fMB-kE-XEh" firstAttribute="centerX" secondItem="d9a-0s-fbl" secondAttribute="centerX" id="ipC-42-QbH"/>
-                            <constraint firstItem="d9a-0s-fbl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kfx-3c-4cn"/>
-                            <constraint firstItem="uve-2K-IsO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s2C-wP-wDS"/>
+                            <constraint firstItem="fMB-kE-XEh" firstAttribute="top" secondItem="uve-2K-IsO" secondAttribute="bottom" constant="46" id="1uP-oX-WKx"/>
+                            <constraint firstItem="Udw-fv-y6d" firstAttribute="trailing" secondItem="TLW-wB-QMd" secondAttribute="trailing" id="GlU-FF-q8G"/>
+                            <constraint firstItem="uve-2K-IsO" firstAttribute="leading" secondItem="fMB-kE-XEh" secondAttribute="leading" id="I91-9K-snI"/>
+                            <constraint firstItem="d9a-0s-fbl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Jbn-rp-UdH"/>
+                            <constraint firstItem="TLW-wB-QMd" firstAttribute="baseline" secondItem="d9a-0s-fbl" secondAttribute="baseline" id="L8E-2I-8UM"/>
+                            <constraint firstItem="zad-TZ-Z3H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="MTh-Nx-zHL"/>
+                            <constraint firstItem="Udw-fv-y6d" firstAttribute="centerX" secondItem="fMB-kE-XEh" secondAttribute="centerX" id="PPG-6r-dXx"/>
+                            <constraint firstItem="uve-2K-IsO" firstAttribute="top" secondItem="d9a-0s-fbl" secondAttribute="bottom" constant="8" symbolic="YES" id="PXt-Dr-Z5Q"/>
+                            <constraint firstItem="Udw-fv-y6d" firstAttribute="leading" secondItem="zad-TZ-Z3H" secondAttribute="leading" id="RTY-RQ-GOa"/>
+                            <constraint firstItem="Udw-fv-y6d" firstAttribute="top" secondItem="fMB-kE-XEh" secondAttribute="bottom" constant="8" symbolic="YES" id="ULw-s4-M8s"/>
+                            <constraint firstItem="d9a-0s-fbl" firstAttribute="leading" secondItem="zad-TZ-Z3H" secondAttribute="trailing" constant="8" symbolic="YES" id="abn-2j-2Kt"/>
+                            <constraint firstAttribute="bottom" secondItem="Udw-fv-y6d" secondAttribute="bottom" constant="20" symbolic="YES" id="d92-Ih-6c9"/>
+                            <constraint firstItem="d9a-0s-fbl" firstAttribute="baseline" secondItem="zad-TZ-Z3H" secondAttribute="baseline" id="iF7-Es-EeP"/>
+                            <constraint firstItem="fMB-kE-XEh" firstAttribute="trailing" secondItem="uve-2K-IsO" secondAttribute="trailing" id="iYZ-2E-V3c"/>
+                            <constraint firstItem="Udw-fv-y6d" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="jfk-rR-ofI"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imgOne" destination="uve-2K-IsO" id="Dxg-ph-o9V"/>
                         <outlet property="imgTwo" destination="fMB-kE-XEh" id="B1z-ix-DdI"/>
+                        <outlet property="resultImg" destination="Udw-fv-y6d" id="ein-jV-lkQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
