@@ -12,6 +12,7 @@
 		9D99ECCA1A95E40500EED007 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D99ECC81A95E40500EED007 /* Main.storyboard */; };
 		9D99ECCC1A95E40500EED007 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D99ECCB1A95E40500EED007 /* Images.xcassets */; };
 		9D99ECDB1A95E40500EED007 /* paperGlueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D99ECDA1A95E40500EED007 /* paperGlueTests.swift */; };
+		9DD415091A99A5A2005480B5 /* app icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD415081A99A5A2005480B5 /* app icon.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		9D99ECD41A95E40500EED007 /* paperGlueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = paperGlueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D99ECD91A95E40500EED007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D99ECDA1A95E40500EED007 /* paperGlueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = paperGlueTests.swift; sourceTree = "<group>"; };
+		9DD415081A99A5A2005480B5 /* app icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "app icon.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				9D99ECC41A95E40500EED007 /* AppDelegate.swift */,
 				9D99ECC61A95E40500EED007 /* ViewController.swift */,
 				9D99ECC81A95E40500EED007 /* Main.storyboard */,
+				9DD415081A99A5A2005480B5 /* app icon.xcassets */,
 				9D99ECCB1A95E40500EED007 /* Images.xcassets */,
 				9D99ECC21A95E40500EED007 /* Supporting Files */,
 			);
@@ -192,6 +195,7 @@
 			files = (
 				9D99ECCA1A95E40500EED007 /* Main.storyboard in Resources */,
 				9D99ECCC1A95E40500EED007 /* Images.xcassets in Resources */,
+				9DD415091A99A5A2005480B5 /* app icon.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
