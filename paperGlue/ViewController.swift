@@ -15,17 +15,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var imgTwo:UIImageView!=nil
     @IBOutlet var resultImg:UIImageView!=nil
 
-    var currentBtn: UIButton!=nil
+    var currentBarBtn: UIBarButtonItem!=nil
     
-    @IBAction func selectImage(sender: UIButton) {
-        currentBtn = sender
+    @IBAction func selectImage(sender: UIBarButtonItem) {
+        currentBarBtn = sender
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
-            var imag = UIImagePickerController()
-            imag.delegate = self
-            imag.sourceType = UIImagePickerControllerSourceType.PhotoLibrary;
-            imag.allowsEditing = false
-            self.presentViewController(imag, animated: true, completion: nil)
+            
+            var picker = UIImagePickerController()
+            
+            picker.delegate = self
+            picker.sourceType = .PhotoLibrary;
+            picker.allowsEditing = false
+            picker.modalPresentationStyle = .Popover
+            presentViewController(picker, animated: true, completion: nil)
+            picker.popoverPresentationController?.barButtonItem = sender
         }
     }
     
@@ -36,8 +40,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var mergedImgSize: CGSize = CGSizeMake(mergedImgWidth(), mergedImgHeight)
         var rectangle = CGRectMake(0.0, 0.0, mergedImgWidth(), mergedImgHeight)
 
-        
-        
         UIGraphicsBeginImageContext(mergedImgSize)
             imgOne?.image?.drawInRect(CGRectMake(0.0, 0.0, imgOneSize.width, imgOneSize.height))
             imgTwo?.image?.drawInRect(CGRectMake(0.0, imgOneSize.height, imgTwoSize.width, imgTwoSize.height))
@@ -46,9 +48,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         resultImg.image = mergedImg
     }
+
     
     @IBAction func saveToLibrary(sender: UIButton) {
-        let alertController = UIAlertController(title: "paperGlue", message: "Do you want to save merged image to photo library?", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(
+                title: "paperGlue",
+                message: "Do you want to save merged image to photo library?",
+                preferredStyle: UIAlertControllerStyle.Alert)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         alertController.addAction(cancelAction)
@@ -60,6 +66,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
+
     
     func writeImgToLibrary() {
         UIImageWriteToSavedPhotosAlbum(resultImg.image, self, "image:didFinishSavingWithError:contextInfo:", nil)
@@ -69,16 +76,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         var imgOneSize: CGSize! = imgOne?.image?.size
         var imgTwoSize: CGSize! = imgTwo?.image?.size
         
-        let imgOneWidth: CGFloat! = imgOneSize!.width
-        println("imgOneWidth = \(imgOneWidth)")
-        
-        
-        let imgTwoWidth: CGFloat! = imgTwoSize.width
-        println("imgTwoWidth = \(imgTwoWidth)")
-        
-        return CGFloat(max(imgOneWidth!,imgTwoWidth!))
+        return CGFloat(max(imgOneSize!.width,imgTwoSize.width))
     }
-    
     
     func image(image: UIImage, didFinishSavingWithError
         error: NSErrorPointer, contextInfo:UnsafePointer<Void>) {
@@ -88,19 +87,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject: AnyObject]) {
-
-        let selectedImage : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-
-        if currentBtn.titleLabel?.text == "Select image 1" {
-            imgOne?.image = selectedImage
-        } else {
-            imgTwo?.image = selectedImage
-        }
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
+    //MARK: Default class functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,9 +99,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
+    
+    //MARK: Delegates
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject: AnyObject]) {
+        let selectedImage : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        if currentBarBtn.title == "Select image 1" {
+            imgOne?.image = selectedImage
+        } else {
+            imgTwo?.image = selectedImage
+        }
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
 
 }
 
