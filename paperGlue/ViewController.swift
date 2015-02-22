@@ -33,6 +33,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    
+    @IBAction func openImageFromInbox(sender: UIBarButtonItem) {
+        println("open Image from Inbox")
+        
+        let fileManager: NSFileManager = NSFileManager.defaultManager()
+        var documentsPathArray: NSArray = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        
+        var documentsPath: NSString = documentsPathArray.firstObject as! NSString
+        var imagePath: NSString = documentsPath as! String + "/Inbox/Faces - 1.png"
+        var imgFromExt: UIImage = UIImage(contentsOfFile: imagePath as! String)!
+        imgOne.image = imgFromExt
+    }
+    
     @IBAction func mergeImages(sender: UIBarButtonItem) {
         var imgOneSize: CGSize! = imgOne?.image?.size
         var imgTwoSize: CGSize! = imgTwo?.image?.size

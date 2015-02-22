@@ -27,6 +27,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fMB-kE-XEh">
                                 <rect key="frame" x="304" y="28" width="280" height="259"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Udw-fv-y6d">
+                                <rect key="frame" x="16" y="295" width="568" height="261"/>
+                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZGR-BO-PHu">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
@@ -38,6 +41,11 @@
                                     <barButtonItem title="Image 2" id="ebB-uP-gu9">
                                         <connections>
                                             <action selector="selectImage:" destination="BYZ-38-t0r" id="1eV-oU-OvW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="open FS" id="vX6-2n-pju">
+                                        <connections>
+                                            <action selector="openImageFromInbox:" destination="BYZ-38-t0r" id="X5n-vl-86C"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="a7q-y7-os2"/>
@@ -53,9 +61,6 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Udw-fv-y6d">
-                                <rect key="frame" x="16" y="295" width="568" height="261"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
