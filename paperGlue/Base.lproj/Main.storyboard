@@ -18,75 +18,60 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uve-2K-IsO">
-                                <rect key="frame" x="211" y="58" width="178" height="121"/>
+                                <rect key="frame" x="16" y="28" width="280" height="259"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="178" id="WWu-Tu-BSa"/>
-                                    <constraint firstAttribute="height" constant="121" id="avW-HF-LNQ"/>
+                                    <constraint firstAttribute="width" constant="280" id="dwp-96-HA7"/>
+                                    <constraint firstAttribute="height" constant="259" id="qZz-Xg-12g"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fMB-kE-XEh">
-                                <rect key="frame" x="211" y="225" width="178" height="121"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="121" id="7oO-qD-Nns"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TLW-wB-QMd">
-                                <rect key="frame" x="126" y="524" width="97" height="30"/>
-                                <state key="normal" title="Merge images">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="mergeImages:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hWd-CH-rmg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gm-VJ-gnB">
-                                <rect key="frame" x="16" y="524" width="99" height="30"/>
-                                <state key="normal" title="Save to library">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveToLibrary:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B5H-pf-5cJ"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Udw-fv-y6d">
-                                <rect key="frame" x="16" y="354" width="568" height="162"/>
+                                <rect key="frame" x="304" y="28" width="280" height="259"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZGR-BO-PHu">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Select image 1" id="ZX3-CQ-dvB">
+                                    <barButtonItem title="Image 1" id="ZX3-CQ-dvB">
                                         <connections>
                                             <action selector="selectImage:" destination="BYZ-38-t0r" id="DIO-y0-aSb"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="A1g-3W-K67"/>
-                                    <barButtonItem title="Select image 2" id="ebB-uP-gu9">
+                                    <barButtonItem title="Image 2" id="ebB-uP-gu9">
                                         <connections>
                                             <action selector="selectImage:" destination="BYZ-38-t0r" id="1eV-oU-OvW"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="a7q-y7-os2"/>
+                                    <barButtonItem title="Merge" id="6Dr-1H-iVf">
+                                        <connections>
+                                            <action selector="mergeImages:" destination="BYZ-38-t0r" id="i7R-Zc-xTB"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Save" id="yIz-ot-1vZ">
+                                        <connections>
+                                            <action selector="saveToLibrary:" destination="BYZ-38-t0r" id="2TE-pA-rK5"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Udw-fv-y6d">
+                                <rect key="frame" x="16" y="295" width="568" height="261"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0gm-VJ-gnB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="2MI-kT-CjP"/>
-                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="centerX" secondItem="Udw-fv-y6d" secondAttribute="centerX" id="ATq-hF-kwh"/>
-                            <constraint firstItem="0gm-VJ-gnB" firstAttribute="baseline" secondItem="TLW-wB-QMd" secondAttribute="baseline" id="GRs-BG-o8o"/>
-                            <constraint firstItem="0gm-VJ-gnB" firstAttribute="leading" secondItem="Udw-fv-y6d" secondAttribute="leading" id="IMJ-HJ-yg0"/>
-                            <constraint firstItem="fMB-kE-XEh" firstAttribute="centerX" secondItem="Udw-fv-y6d" secondAttribute="centerX" id="JlY-rA-ulJ"/>
-                            <constraint firstItem="0gm-VJ-gnB" firstAttribute="top" secondItem="Udw-fv-y6d" secondAttribute="bottom" constant="8" symbolic="YES" id="Jr1-Qc-AZf"/>
-                            <constraint firstItem="uve-2K-IsO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="38" id="KfE-EZ-vsB"/>
-                            <constraint firstItem="Udw-fv-y6d" firstAttribute="top" secondItem="fMB-kE-XEh" secondAttribute="bottom" constant="8" symbolic="YES" id="N6C-ob-2Na"/>
-                            <constraint firstItem="fMB-kE-XEh" firstAttribute="top" secondItem="uve-2K-IsO" secondAttribute="bottom" constant="46" id="RBf-zh-wvN"/>
-                            <constraint firstItem="TLW-wB-QMd" firstAttribute="leading" secondItem="0gm-VJ-gnB" secondAttribute="trailing" constant="11" id="XdB-m6-shE"/>
-                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="XyH-pT-ouP"/>
-                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="top" secondItem="0gm-VJ-gnB" secondAttribute="bottom" constant="2" id="bub-t1-VWM"/>
-                            <constraint firstItem="uve-2K-IsO" firstAttribute="trailing" secondItem="fMB-kE-XEh" secondAttribute="trailing" id="hkC-R6-jXn"/>
-                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jc0-RI-vIf"/>
-                            <constraint firstItem="uve-2K-IsO" firstAttribute="leading" secondItem="fMB-kE-XEh" secondAttribute="leading" id="juV-cd-aUR"/>
-                            <constraint firstAttribute="trailing" secondItem="ZGR-BO-PHu" secondAttribute="trailing" id="ysd-dj-4av"/>
+                            <constraint firstItem="fMB-kE-XEh" firstAttribute="leading" secondItem="uve-2K-IsO" secondAttribute="trailing" constant="8" symbolic="YES" id="7kI-Dq-mp6"/>
+                            <constraint firstItem="Udw-fv-y6d" firstAttribute="top" secondItem="uve-2K-IsO" secondAttribute="bottom" constant="8" symbolic="YES" id="AuS-Hy-Nou"/>
+                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Hq3-so-rde"/>
+                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Irf-cc-rdz"/>
+                            <constraint firstItem="Udw-fv-y6d" firstAttribute="centerX" secondItem="ZGR-BO-PHu" secondAttribute="centerX" id="SJV-sc-eOm"/>
+                            <constraint firstItem="uve-2K-IsO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="V8f-hu-d33"/>
+                            <constraint firstItem="Udw-fv-y6d" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bAj-G3-7aT"/>
+                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="top" secondItem="Udw-fv-y6d" secondAttribute="bottom" id="cge-OP-BOk"/>
+                            <constraint firstItem="fMB-kE-XEh" firstAttribute="trailing" secondItem="Udw-fv-y6d" secondAttribute="trailing" id="f3A-oh-im0"/>
+                            <constraint firstItem="Udw-fv-y6d" firstAttribute="top" secondItem="fMB-kE-XEh" secondAttribute="bottom" constant="8" symbolic="YES" id="fTO-02-T8G"/>
+                            <constraint firstItem="Udw-fv-y6d" firstAttribute="leading" secondItem="uve-2K-IsO" secondAttribute="leading" id="lIq-EQ-kgH"/>
+                            <constraint firstAttribute="trailing" secondItem="ZGR-BO-PHu" secondAttribute="trailing" id="nfy-yd-RZl"/>
+                            <constraint firstItem="fMB-kE-XEh" firstAttribute="top" secondItem="uve-2K-IsO" secondAttribute="top" id="xLE-3N-kbe"/>
                         </constraints>
                     </view>
                     <connections>

@@ -33,7 +33,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    @IBAction func mergeImages(sender: UIButton) {
+    @IBAction func mergeImages(sender: UIBarButtonItem) {
         var imgOneSize: CGSize! = imgOne?.image?.size
         var imgTwoSize: CGSize! = imgTwo?.image?.size
         var mergedImgHeight = imgOneSize.height + imgTwoSize.height
@@ -50,7 +50,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     
-    @IBAction func saveToLibrary(sender: UIButton) {
+    @IBAction func saveToLibrary(sender: UIBarButtonItem) {
         let alertController = UIAlertController(
                 title: "paperGlue",
                 message: "Do you want to save merged image to photo library?",
@@ -107,7 +107,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject: AnyObject]) {
         let selectedImage : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-        if currentBarBtn.title == "Select image 1" {
+        if currentBarBtn.title == "Image 1" {
             imgOne?.image = selectedImage
         } else {
             imgTwo?.image = selectedImage
