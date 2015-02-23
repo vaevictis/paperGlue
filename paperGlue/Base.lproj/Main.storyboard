@@ -20,15 +20,15 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uve-2K-IsO">
                                 <rect key="frame" x="16" y="28" width="280" height="259"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="dwp-96-HA7"/>
-                                    <constraint firstAttribute="height" constant="259" id="qZz-Xg-12g"/>
+                                    <constraint firstAttribute="width" constant="280" id="Gza-Uc-rM6"/>
+                                    <constraint firstAttribute="height" constant="259" id="gpE-i8-ZIn"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fMB-kE-XEh">
                                 <rect key="frame" x="304" y="28" width="280" height="259"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Udw-fv-y6d">
-                                <rect key="frame" x="16" y="295" width="568" height="261"/>
+                                <rect key="frame" x="16" y="295" width="280" height="261"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZGR-BO-PHu">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
@@ -49,6 +49,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="a7q-y7-os2"/>
+                                    <barButtonItem title="list files" id="een-M6-F0c">
+                                        <connections>
+                                            <action selector="deleteFilesInInbox:" destination="BYZ-38-t0r" id="aiE-t4-Mi4"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Merge" id="6Dr-1H-iVf">
                                         <connections>
                                             <action selector="mergeImages:" destination="BYZ-38-t0r" id="i7R-Zc-xTB"/>
@@ -64,19 +69,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fMB-kE-XEh" firstAttribute="leading" secondItem="uve-2K-IsO" secondAttribute="trailing" constant="8" symbolic="YES" id="7kI-Dq-mp6"/>
-                            <constraint firstItem="Udw-fv-y6d" firstAttribute="top" secondItem="uve-2K-IsO" secondAttribute="bottom" constant="8" symbolic="YES" id="AuS-Hy-Nou"/>
-                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Hq3-so-rde"/>
-                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Irf-cc-rdz"/>
-                            <constraint firstItem="Udw-fv-y6d" firstAttribute="centerX" secondItem="ZGR-BO-PHu" secondAttribute="centerX" id="SJV-sc-eOm"/>
-                            <constraint firstItem="uve-2K-IsO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="V8f-hu-d33"/>
-                            <constraint firstItem="Udw-fv-y6d" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bAj-G3-7aT"/>
-                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="top" secondItem="Udw-fv-y6d" secondAttribute="bottom" id="cge-OP-BOk"/>
-                            <constraint firstItem="fMB-kE-XEh" firstAttribute="trailing" secondItem="Udw-fv-y6d" secondAttribute="trailing" id="f3A-oh-im0"/>
-                            <constraint firstItem="Udw-fv-y6d" firstAttribute="top" secondItem="fMB-kE-XEh" secondAttribute="bottom" constant="8" symbolic="YES" id="fTO-02-T8G"/>
-                            <constraint firstItem="Udw-fv-y6d" firstAttribute="leading" secondItem="uve-2K-IsO" secondAttribute="leading" id="lIq-EQ-kgH"/>
-                            <constraint firstAttribute="trailing" secondItem="ZGR-BO-PHu" secondAttribute="trailing" id="nfy-yd-RZl"/>
-                            <constraint firstItem="fMB-kE-XEh" firstAttribute="top" secondItem="uve-2K-IsO" secondAttribute="top" id="xLE-3N-kbe"/>
+                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="top" secondItem="Udw-fv-y6d" secondAttribute="bottom" id="3uN-jn-93S"/>
+                            <constraint firstItem="Udw-fv-y6d" firstAttribute="top" secondItem="uve-2K-IsO" secondAttribute="bottom" constant="8" symbolic="YES" id="4D2-8N-KBs"/>
+                            <constraint firstItem="uve-2K-IsO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="6Su-Mq-8Q8"/>
+                            <constraint firstItem="uve-2K-IsO" firstAttribute="leading" secondItem="Udw-fv-y6d" secondAttribute="leading" id="Nti-cI-9dv"/>
+                            <constraint firstItem="uve-2K-IsO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Sxf-iP-Ekx"/>
+                            <constraint firstItem="Udw-fv-y6d" firstAttribute="trailing" secondItem="uve-2K-IsO" secondAttribute="trailing" id="TcR-lf-sI0"/>
+                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Ugg-vY-YtI"/>
+                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Z2s-Qr-VAL"/>
+                            <constraint firstItem="fMB-kE-XEh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="aJo-Wo-86O"/>
+                            <constraint firstAttribute="trailing" secondItem="ZGR-BO-PHu" secondAttribute="trailing" id="aZn-C7-Obn"/>
+                            <constraint firstItem="uve-2K-IsO" firstAttribute="top" secondItem="fMB-kE-XEh" secondAttribute="top" id="eKs-lD-T0x"/>
+                            <constraint firstItem="fMB-kE-XEh" firstAttribute="leading" secondItem="uve-2K-IsO" secondAttribute="trailing" constant="8" symbolic="YES" id="kR8-x2-QL7"/>
+                            <constraint firstItem="fMB-kE-XEh" firstAttribute="bottom" secondItem="uve-2K-IsO" secondAttribute="bottom" id="ws1-oU-YPZ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -87,6 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="607" y="-1590"/>
         </scene>
     </scenes>
 </document>
