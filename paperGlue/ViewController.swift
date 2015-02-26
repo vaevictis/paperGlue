@@ -101,12 +101,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let inboxUrl = documentDirectory.URLByAppendingPathComponent("Inbox")
             let fileList = fileManager.contentsOfDirectoryAtURL(inboxUrl, includingPropertiesForKeys: nil, options: nil, error: theError)
             
-            let data1 = NSData(contentsOfURL: fileList?.first! as! NSURL)
-            let data2 = NSData(contentsOfURL: fileList?[1] as! NSURL)
-            var img1 = UIImage(data: data1!)
-            var img2 = UIImage(data: data2!)
-            imgOne.image = img1
-            imgTwo.image = img2
+            if let fileURLs = fileList as? [NSURL] {
+                for fileURL in fileURLs {
+                    let img = UIImage(data: NSData(contentsOfURL: fileURL)!)
+                    imgOne.image = img
+
+                    //            TODO: fill a collection
+                }
+            }
         }
     }
     
