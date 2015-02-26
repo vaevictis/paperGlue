@@ -34,44 +34,27 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     
-    @IBAction func openImageFromInbox(sender: UIBarButtonItem) {
-        println("open Image from Inbox")
-        
-        let fileManager: NSFileManager = NSFileManager.defaultManager()
-        
-        var documentsPathArray: NSArray = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        var documentsPath: NSString = documentsPathArray.firstObject as! NSString
-        var documentsDirectory: NSArray = fileManager.contentsOfDirectoryAtPath(documentsPath as! String, error: nil)!
-        var filter: NSPredicate = NSPredicate(format: "self ENDSWITH ", ".png")
-        
-        
-        var imagePath: NSString = documentsPath as! String + "/Inbox/Faces - 1.png"
-        var imgFromExt: UIImage = UIImage(contentsOfFile: imagePath as! String)!
-        
-        imgOne.image = imgFromExt
+    @IBAction func openImagesFromInbox(sender: UIBarButtonItem) {
+        open2ImagesFromInbox()
     }
     
     @IBAction func deleteFilesInInbox(sender: UIBarButtonItem) {
         let fileManager = NSFileManager.defaultManager()
         var theError = NSErrorPointer()
-
+        
         let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         
         if let documentDirectory: NSURL = urls.first as? NSURL {
             let inboxUrl = documentDirectory.URLByAppendingPathComponent("Inbox")
-            println("inboxURL: \(inboxUrl)")
             let fileList = fileManager.contentsOfDirectoryAtURL(inboxUrl, includingPropertiesForKeys: nil, options: nil, error: theError)
-            println("file list: \(fileList)")
-            
-            let data1 = NSData(contentsOfURL: fileList?.first! as! NSURL)
-            let data2 = NSData(contentsOfURL: fileList?[1] as! NSURL)
-            var img1 = UIImage(data: data1!)
-            var img2 = UIImage(data: data2!)
-            imgOne.image = img1
-            imgTwo.image = img2
+
+            if let fileURLs = fileList as? [NSURL] {
+                for fileURL in fileURLs {
+                    println("file: \(fileURL.lastPathComponent)")
+                    fileManager.removeItemAtURL(fileURL, error: theError)
+                }
+            }
         }
-        
-        
     }
     
     @IBAction func mergeImages(sender: UIBarButtonItem) {
@@ -108,6 +91,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.presentViewController(alertController, animated: true, completion: nil)
     }
 
+    func open2ImagesFromInbox() {
+        let fileManager = NSFileManager.defaultManager()
+        var theError = NSErrorPointer()
+        
+        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        
+        if let documentDirectory: NSURL = urls.first as? NSURL {
+            let inboxUrl = documentDirectory.URLByAppendingPathComponent("Inbox")
+            let fileList = fileManager.contentsOfDirectoryAtURL(inboxUrl, includingPropertiesForKeys: nil, options: nil, error: theError)
+            
+            let data1 = NSData(contentsOfURL: fileList?.first! as! NSURL)
+            let data2 = NSData(contentsOfURL: fileList?[1] as! NSURL)
+            var img1 = UIImage(data: data1!)
+            var img2 = UIImage(data: data2!)
+            imgOne.image = img1
+            imgTwo.image = img2
+        }
+    }
     
     func writeImgToLibrary() {
         UIImageWriteToSavedPhotosAlbum(resultImg.image, self, "image:didFinishSavingWithError:contextInfo:", nil)
