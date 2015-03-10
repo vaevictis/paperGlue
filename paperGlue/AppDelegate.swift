@@ -13,9 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        println("didFinishLaunchingWithOptions")
+        window?.tintColor = UIColor(red: 0.01, green: 0.41, blue: 0.22, alpha: 1.0)
         
         return true
     }
@@ -31,11 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
-        println("will enter foreground")
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        println("didBecomeActive")
     }
 
     func applicationWillTerminate(application: UIApplication) {

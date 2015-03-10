@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7515.2" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7515.2" systemVersion="14D87p" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7512"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -20,8 +20,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uve-2K-IsO">
                                 <rect key="frame" x="16" y="28" width="280" height="259"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="Gza-Uc-rM6"/>
-                                    <constraint firstAttribute="height" constant="259" id="gpE-i8-ZIn"/>
+                                    <constraint firstAttribute="width" constant="280" id="YDB-s3-2FQ"/>
+                                    <constraint firstAttribute="height" constant="259" id="eor-lC-CNg"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fMB-kE-XEh">
@@ -54,7 +54,14 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="a7q-y7-os2"/>
-                                    <barButtonItem title="load FS" id="een-M6-F0c">
+                                    <barButtonItem title="Collec" id="nrx-7j-C2t">
+                                        <connections>
+                                            <segue destination="O8s-8g-WwE" kind="popoverPresentation" identifier="imageCollection" popoverAnchorBarButtonItem="nrx-7j-C2t" id="D9r-Rj-50n">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Load FS" id="een-M6-F0c">
                                         <connections>
                                             <action selector="openImagesFromInbox:" destination="BYZ-38-t0r" id="NOq-x8-Pfy"/>
                                         </connections>
@@ -70,19 +77,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="top" secondItem="Udw-fv-y6d" secondAttribute="bottom" id="3uN-jn-93S"/>
-                            <constraint firstItem="Udw-fv-y6d" firstAttribute="top" secondItem="uve-2K-IsO" secondAttribute="bottom" constant="8" symbolic="YES" id="4D2-8N-KBs"/>
-                            <constraint firstItem="uve-2K-IsO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="6Su-Mq-8Q8"/>
-                            <constraint firstItem="uve-2K-IsO" firstAttribute="leading" secondItem="Udw-fv-y6d" secondAttribute="leading" id="Nti-cI-9dv"/>
-                            <constraint firstItem="uve-2K-IsO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Sxf-iP-Ekx"/>
-                            <constraint firstItem="Udw-fv-y6d" firstAttribute="trailing" secondItem="uve-2K-IsO" secondAttribute="trailing" id="TcR-lf-sI0"/>
-                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Ugg-vY-YtI"/>
-                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Z2s-Qr-VAL"/>
-                            <constraint firstItem="fMB-kE-XEh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="aJo-Wo-86O"/>
-                            <constraint firstAttribute="trailing" secondItem="ZGR-BO-PHu" secondAttribute="trailing" id="aZn-C7-Obn"/>
-                            <constraint firstItem="uve-2K-IsO" firstAttribute="top" secondItem="fMB-kE-XEh" secondAttribute="top" id="eKs-lD-T0x"/>
-                            <constraint firstItem="fMB-kE-XEh" firstAttribute="leading" secondItem="uve-2K-IsO" secondAttribute="trailing" constant="8" symbolic="YES" id="kR8-x2-QL7"/>
-                            <constraint firstItem="fMB-kE-XEh" firstAttribute="bottom" secondItem="uve-2K-IsO" secondAttribute="bottom" id="ws1-oU-YPZ"/>
+                            <constraint firstItem="fMB-kE-XEh" firstAttribute="top" secondItem="uve-2K-IsO" secondAttribute="top" id="6Zl-uc-rAU"/>
+                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="top" secondItem="Udw-fv-y6d" secondAttribute="bottom" id="7Ib-Wm-qVP"/>
+                            <constraint firstItem="fMB-kE-XEh" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="8ht-5S-xoV"/>
+                            <constraint firstItem="Udw-fv-y6d" firstAttribute="top" secondItem="uve-2K-IsO" secondAttribute="bottom" constant="8" symbolic="YES" id="Bj4-8Y-8Pk"/>
+                            <constraint firstItem="Udw-fv-y6d" firstAttribute="leading" secondItem="uve-2K-IsO" secondAttribute="leading" id="Dke-SD-MLt"/>
+                            <constraint firstItem="Udw-fv-y6d" firstAttribute="trailing" secondItem="uve-2K-IsO" secondAttribute="trailing" id="Dnt-0N-QHv"/>
+                            <constraint firstItem="fMB-kE-XEh" firstAttribute="leading" secondItem="uve-2K-IsO" secondAttribute="trailing" constant="8" symbolic="YES" id="O0J-GW-WfM"/>
+                            <constraint firstItem="uve-2K-IsO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Py5-Al-Gh7"/>
+                            <constraint firstItem="uve-2K-IsO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="U2d-bO-kzd"/>
+                            <constraint firstItem="fMB-kE-XEh" firstAttribute="bottom" secondItem="uve-2K-IsO" secondAttribute="bottom" id="heg-yR-SvT"/>
+                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="myo-V6-gaW"/>
+                            <constraint firstAttribute="trailing" secondItem="ZGR-BO-PHu" secondAttribute="trailing" id="v3f-xw-LTb"/>
+                            <constraint firstItem="ZGR-BO-PHu" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="yPy-ee-uzH"/>
                         </constraints>
                     </view>
                     <connections>
@@ -94,6 +101,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="607" y="-1590"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="cXt-Ja-hoq">
+            <objects>
+                <collectionViewController id="O8s-8g-WwE" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Ofl-5z-ZC5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vEp-W1-JTI">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="SBT-k5-tVh">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="O8s-8g-WwE" id="l23-Xb-0vx"/>
+                            <outlet property="delegate" destination="O8s-8g-WwE" id="CQr-cp-WKm"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Asb-Qt-sMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1378" y="-1590"/>
         </scene>
     </scenes>
 </document>

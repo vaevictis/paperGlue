@@ -151,7 +151,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject: AnyObject]) {
         let selectedImage : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-        if currentBarBtn.title == "Image 1" {
+        if currentBarBtn.title == "Img 1" {
             imgOne?.image = selectedImage
         } else {
             imgTwo?.image = selectedImage
