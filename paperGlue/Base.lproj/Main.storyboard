@@ -54,8 +54,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="a7q-y7-os2"/>
-                                    <barButtonItem title="Collec" id="nrx-7j-C2t"/>
-                                    <barButtonItem title="Load FS" id="een-M6-F0c">
+                                    <barButtonItem title="Load inbox" id="een-M6-F0c">
                                         <connections>
                                             <action selector="openImagesFromInbox:" destination="BYZ-38-t0r" id="NOq-x8-Pfy"/>
                                         </connections>

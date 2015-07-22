@@ -35,7 +35,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     @IBAction func openImagesFromInbox(sender: UIBarButtonItem) {
-        open2ImagesFromInbox()
+        let fileManager = NSFileManager.defaultManager()
+        var theError = NSErrorPointer()
+        
+        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        
+        if let documentDirectory: NSURL = urls.first as? NSURL {
+            let inboxUrl = documentDirectory.URLByAppendingPathComponent("Inbox")
+            let fileList = fileManager.contentsOfDirectoryAtURL(inboxUrl, includingPropertiesForKeys: nil, options: nil, error: theError)
+            
+            if let fileURLs = fileList as? [NSURL] {
+                var imgs: [UIImage] = []
+                for fileURL in fileURLs {
+                    let img = UIImage(data: NSData(contentsOfURL: fileURL)!)
+                    imgs.append(img!)
+                    //  TODO: fill a collection
+                }
+                
+                imgOne.image = imgs[0]
+                if imgs.count > 1 {
+                    imgTwo.image = imgs[1]
+                }
+            }
+        }
     }
     
     @IBAction func deleteFilesInInbox(sender: UIBarButtonItem) {
@@ -89,27 +111,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         alertController.addAction(saveAction)
         
         self.presentViewController(alertController, animated: true, completion: nil)
-    }
-
-    func open2ImagesFromInbox() {
-        let fileManager = NSFileManager.defaultManager()
-        var theError = NSErrorPointer()
-        
-        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        
-        if let documentDirectory: NSURL = urls.first as? NSURL {
-            let inboxUrl = documentDirectory.URLByAppendingPathComponent("Inbox")
-            let fileList = fileManager.contentsOfDirectoryAtURL(inboxUrl, includingPropertiesForKeys: nil, options: nil, error: theError)
-            
-            if let fileURLs = fileList as? [NSURL] {
-                for fileURL in fileURLs {
-                    let img = UIImage(data: NSData(contentsOfURL: fileURL)!)
-                    imgOne.image = img
-
-                    //            TODO: fill a collection
-                }
-            }
-        }
     }
     
     func writeImgToLibrary() {
