@@ -62,7 +62,7 @@
                                     <barButtonItem systemItem="trash" id="vX6-2n-pju">
                                         <color key="tintColor" red="1" green="0.0" blue="0.060231345866727182" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="deleteFilesInInbox:" destination="BYZ-38-t0r" id="dUl-WS-9a3"/>
+                                            <action selector="cleanUp:" destination="BYZ-38-t0r" id="cIu-lN-ZJI"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

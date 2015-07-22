@@ -67,7 +67,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    @IBAction func deleteFilesInInbox(sender: UIBarButtonItem) {
+    @IBAction func cleanUp(sender: UIBarButtonItem) {
+        deleteFilesInInbox()
+        deleteImgs()
+        deleteMergeBuffer()
+    }
+    
+    func deleteFilesInInbox() {
         let fileManager = NSFileManager.defaultManager()
         var theError = NSErrorPointer()
         
@@ -84,6 +90,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 }
             }
         }
+    }
+    
+    func deleteImgs() {
+        imgOne.removeFromSuperview()
+        imgTwo.removeFromSuperview()
+    }
+    
+    func deleteMergeBuffer() {
+        resultImg.removeFromSuperview()
     }
     
     @IBAction func mergeImages(sender: UIBarButtonItem) {
