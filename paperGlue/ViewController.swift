@@ -51,8 +51,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     imgs.append(img!)
                     //  TODO: fill a collection
                 }
+                if imgs.count == 0 {
+                    println("no images in Inbox")
+                    return
+                }
                 
-                imgOne.image = imgs[0]
+                if imgs.count > 0 {
+                    imgOne.image = imgs[0]
+                }
+                
                 if imgs.count > 1 {
                     imgTwo.image = imgs[1]
                 }
