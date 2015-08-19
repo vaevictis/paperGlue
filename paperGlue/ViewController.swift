@@ -22,7 +22,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
             
-            var picker = UIImagePickerController()
+            let picker = UIImagePickerController()
             
             picker.delegate = self
             picker.sourceType = .PhotoLibrary;
@@ -36,13 +36,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func openImagesFromInbox(sender: UIBarButtonItem) {
         let fileManager = NSFileManager.defaultManager()
-        var theError = NSErrorPointer()
+        let theError = NSErrorPointer()
         
         let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         
-        if let documentDirectory: NSURL = urls.first as? NSURL {
+        if let documentDirectory: NSURL = urls.first as NSURL! {
             let inboxUrl = documentDirectory.URLByAppendingPathComponent("Inbox")
-            let fileList = fileManager.contentsOfDirectoryAtURL(inboxUrl, includingPropertiesForKeys: nil, options: nil, error: theError)
+            let fileList: [AnyObject]?
+            do {
+                fileList = try fileManager.contentsOfDirectoryAtURL(inboxUrl, includingPropertiesForKeys: nil, options: [])
+            } catch let error as NSError {
+                theError.memory = error
+                fileList = nil
+            }
             
             if let fileURLs = fileList as? [NSURL] {
                 var imgs: [UIImage] = []
@@ -52,7 +58,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     //  TODO: fill a collection
                 }
                 if imgs.count == 0 {
-                    println("no images in Inbox")
+                    print("no images in Inbox")
                     return
                 }
                 
@@ -75,18 +81,28 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func deleteFilesInInbox() {
         let fileManager = NSFileManager.defaultManager()
-        var theError = NSErrorPointer()
+        let theError = NSErrorPointer()
         
         let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         
-        if let documentDirectory: NSURL = urls.first as? NSURL {
+        if let documentDirectory: NSURL = urls.first as NSURL! {
             let inboxUrl = documentDirectory.URLByAppendingPathComponent("Inbox")
-            let fileList = fileManager.contentsOfDirectoryAtURL(inboxUrl, includingPropertiesForKeys: nil, options: nil, error: theError)
+            let fileList: [AnyObject]?
+            do {
+                fileList = try fileManager.contentsOfDirectoryAtURL(inboxUrl, includingPropertiesForKeys: nil, options: [])
+            } catch {
+                print("something went rather wrong")
+                fileList = nil
+            }
 
             if let fileURLs = fileList as? [NSURL] {
                 for fileURL in fileURLs {
-                    println("file: \(fileURL.lastPathComponent)")
-                    fileManager.removeItemAtURL(fileURL, error: theError)
+                    print("file: \(fileURL.lastPathComponent)")
+                    do {
+                        try fileManager.removeItemAtURL(fileURL)
+                    } catch let error as NSError {
+                        theError.memory = error
+                    }
                 }
             }
         }
@@ -102,16 +118,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func mergeImages(sender: UIBarButtonItem) {
-        var imgOneSize: CGSize! = imgOne?.image?.size
-        var imgTwoSize: CGSize! = imgTwo?.image?.size
-        var mergedImgHeight = imgOneSize.height + imgTwoSize.height
-        var mergedImgSize: CGSize = CGSizeMake(mergedImgWidth(), mergedImgHeight)
-        var rectangle = CGRectMake(0.0, 0.0, mergedImgWidth(), mergedImgHeight)
+        let imgOneSize: CGSize! = imgOne?.image?.size
+        let imgTwoSize: CGSize! = imgTwo?.image?.size
+        let mergedImgHeight = imgOneSize.height + imgTwoSize.height
+        let mergedImgSize: CGSize = CGSizeMake(mergedImgWidth(), mergedImgHeight)
+        CGRectMake(0.0, 0.0, mergedImgWidth(), mergedImgHeight)
 
         UIGraphicsBeginImageContext(mergedImgSize)
             imgOne?.image?.drawInRect(CGRectMake(0.0, 0.0, imgOneSize.width, imgOneSize.height))
             imgTwo?.image?.drawInRect(CGRectMake(0.0, imgOneSize.height, imgTwoSize.width, imgTwoSize.height))
-            var mergedImg: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+            let mergedImg: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         resultImg.image = mergedImg
@@ -136,12 +152,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func writeImgToLibrary() {
-        UIImageWriteToSavedPhotosAlbum(resultImg.image, self, "image:didFinishSavingWithError:contextInfo:", nil)
+        UIImageWriteToSavedPhotosAlbum(resultImg.image!, self, "image:didFinishSavingWithError:contextInfo:", nil)
     }
     
     func mergedImgWidth() -> CGFloat {
-        var imgOneSize: CGSize! = imgOne?.image?.size
-        var imgTwoSize: CGSize! = imgTwo?.image?.size
+        let imgOneSize: CGSize! = imgOne?.image?.size
+        let imgTwoSize: CGSize! = imgTwo?.image?.size
         
         return CGFloat(max(imgOneSize!.width,imgTwoSize.width))
     }
@@ -149,7 +165,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func image(image: UIImage, didFinishSavingWithError
         error: NSErrorPointer, contextInfo:UnsafePointer<Void>) {
             if error != nil {
-                println("error: \(error)")
+                print("error: \(error)")
             }
     }
     
@@ -171,7 +187,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //MARK: Delegates
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject: AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject]) {
         let selectedImage : UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         if currentBarBtn.title == "Img 1" {
